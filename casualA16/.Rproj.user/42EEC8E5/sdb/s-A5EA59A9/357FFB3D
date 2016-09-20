@@ -1,0 +1,25 @@
+{
+    "contents" : "",
+    "created" : 1474234158424.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "357FFB3D",
+    "lastKnownWriteTime" : 4299747840,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "8ro57cevhr",
+        "caption" : "cwdata",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=cwdata&cache_key=8ro57cevhr",
+        "displayedObservations" : 7946,
+        "environment" : "",
+        "object" : "cwdata",
+        "totalObservations" : 7946,
+        "variables" : 511
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}

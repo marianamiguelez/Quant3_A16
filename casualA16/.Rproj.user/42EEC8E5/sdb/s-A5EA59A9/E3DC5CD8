@@ -1,0 +1,18 @@
+{
+    "contents" : "#####################################################\n################ Replication Project 1 ##############\n#####################################################\n\nlibrary(foreign)\ncwdata <- read.dta(\"/Users/mariana/Desktop/Latex/cwdata.dta\")\nattach(cwdata)\n\n# To create a subset just with variables used in the model and in descpriptive stats:\n#\n\nlibrary(plyr)\nrename(cwdata, c(\"_spline1\"=\"spline1\", \"_spline2\"=\"spline2\", \"_spline3\"=\"spline3\"))\ncwdata$spline1 <- cwdata$`_spline1`\ncwdata$spline2 <- cwdata$`_spline2`\ncwdata$spline3 <- cwdata$`_spline3`\n\n\nmyvars <- c(\"prio\", \"aidshock11\", \"aidshock11pos\", \"lPTSave_filled\", \"lassassinbanks\", \"lriotsbanks\",\n             \"lstrikesbanks\", \"ldemonstrationsbanks\", \"linfantmort\", \"lnciv\", \"lpartautocracy\",\n             \"lpartdemocracy\", \"lfactionaldemoc\", \"lfulldemocracy\", \"lln_rgdpc\", \"lln_population\",\n             \"loil\", \"linstab\", \"ethfrac\", \"relfrac\", \"ncontig\", \"logmtn\", \"ColdWar\", \"spline1\",\n             \"spline2\", \"spline3\", \"year\")\nnewdata<- cwdata[myvars]\n\n\nlibrary(Zelig)\nlibrary(texreg)\nlibrary(stargazer)\nlibrary(memisc)\nmod1 <- zelig(prio ~ aidshock11 + aidshock11pos + lPTSave_filled + lassassinbanks + lriotsbanks +\n              lstrikesbanks + ldemonstrationsbanks + linfantmort + lnciv + lpartautocracy +\n              lpartdemocracy + lfactionaldemoc + lfulldemocracy + lln_rgdpc + lln_population +\n              loil + linstab + ethfrac + relfrac + ncontig + logmtn + ColdWar + spline1 +\n              spline2 + spline3 + year, data = newdata, model = \"relogit\")\ntexreg(mod1)\ntoLatex(mod1)\nmod2 <- glm(prio ~ aidshock11 + aidshock11pos + lPTSave_filled + lassassinbanks + lriotsbanks +\n              lstrikesbanks + ldemonstrationsbanks + linfantmort + lnciv + lpartautocracy +\n              lpartdemocracy + lfactionaldemoc + lfulldemocracy + lln_rgdpc + lln_population +\n              loil + linstab + ethfrac + relfrac + ncontig + logmtn + ColdWar + spline1 +\n              spline2 + spline3 + year, data = newdata, family = binomial(link = \"logit\"))\n",
+    "created" : 1474233434821.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "349635408",
+    "id" : "E3DC5CD8",
+    "lastKnownWriteTime" : 1474316745,
+    "path" : "~/Desktop/OSU/3º Semestre/Quant III/Project/ReplicationData/Replication1.R",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
